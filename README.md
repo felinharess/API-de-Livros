@@ -57,5 +57,5 @@ Este projeto está sob a licença MIT.
 
 ---
 
-Desenvolvido por [Seu Nome](https://github.com/seu-usuario)
+Desenvolvido por [Felipe Linhares Domingues](https://github.com/felinharess)
 
