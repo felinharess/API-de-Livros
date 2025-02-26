@@ -52,14 +52,14 @@ app.post('/livros/:genero', (req, res) => {
     res.status(index).send(retorno)
 });
 app.get('/livros/:categoria', (req, res) => {
-    const {categoria} = req.params;
-    if (livros[categoria]) {
-        res.status(200).send(livros[categoria])
-    }
-    else {
+    const { categoria } = req.params;
+    if (!livros[categoria]) {
         res.status(400).send("Genero invalido");
-
-    }
+        return;
+    
+    };
+        res.status(200).send(livros[categoria])
+    
 });
 
 app.listen(3000, () => {
