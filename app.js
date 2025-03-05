@@ -2,16 +2,8 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 const livros = {
-    aventura: [
-        { id: 1, nome: 'Indiana Jones, vol:1' },
-        { id: 2, nome: 'Indiana Jones, vol:2' },
-
-    ],
-    suspense: [
-        { id: 1, nome: 'Livro do medo, vol: 1' },
-        { id: 2, nome: 'Livro do medo, vol: 2' },
-
-    ],
+    aventura: [],
+    suspense: [],
     romance: [],
     ficcao: [],
 }
@@ -54,12 +46,12 @@ app.post('/livros/:genero', (req, res) => {
 app.get('/livros/:categoria', (req, res) => {
     const { categoria } = req.params;
     if (!livros[categoria]) {
-        res.status(400).send("Genero invalido");
+        res.status(404).send("Genero invalido");
         return;
-    
+
     };
-        res.status(200).send(livros[categoria])
-    
+    res.status(200).send(livros[categoria])
+
 });
 
 app.listen(3000, () => {
